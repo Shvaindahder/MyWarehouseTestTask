@@ -1,17 +1,16 @@
 package com.shvaindahder.testtask.entity;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 import org.hibernate.annotations.Check;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Check(constraints = "mark >= 2 AND mark <= 5")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class Marks {
     @Id
@@ -25,7 +24,7 @@ public class Marks {
     private Subject subject;
 
     @Basic
-    private Date date;
+    private LocalDateTime dateTime;
 
     private int mark;
 
