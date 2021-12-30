@@ -3,8 +3,6 @@ package com.shvaindahder.testtask.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import org.hibernate.annotations.Check;
-
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;

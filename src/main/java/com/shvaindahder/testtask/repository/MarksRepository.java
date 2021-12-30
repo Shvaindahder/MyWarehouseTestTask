@@ -10,6 +10,4 @@ import java.util.List;
 @Repository
 public interface MarksRepository extends CrudRepository<Marks, Long> {
     List<Marks> findMarksByStudent(Student student);
-
-    List<Marks> findMarksByStudentAndDate(Student student, Integer mark);
 }
