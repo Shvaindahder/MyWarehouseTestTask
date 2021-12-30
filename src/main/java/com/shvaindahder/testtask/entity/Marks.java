@@ -6,10 +6,12 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Check;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Check(constraints = "mark >= 2 AND mark <= 5")
 @Data
 @NoArgsConstructor
 public class Marks {
@@ -18,14 +20,18 @@ public class Marks {
     private Long id;
 
     @ManyToOne
+    @NotNull
     private Student student;
 
     @ManyToOne
+    @NotNull
     private Subject subject;
 
     @Basic
     private LocalDateTime dateTime;
 
+    @Min(2)
+    @Max(5)
     private int mark;
 
     public Marks(Student student, Subject subject) {
