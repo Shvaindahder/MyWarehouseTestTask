@@ -35,4 +35,9 @@ public class StudentController {
         }
     }
 
+    @PutMapping(value = "{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<Student> updateStudent(Long userId, @RequestBody StudentDTO studentDTO) {
+
+    }
+
 }

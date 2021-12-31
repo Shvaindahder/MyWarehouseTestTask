@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.HashSet;
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -63,7 +64,16 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Boolean update(StudentDTO previousStudent, StudentDTO newStudent) {
-        return null;
+        Student prev;
+
+        try {
+            prev = studentRepository.findById(previousStudent.getId()).orElseThrow(NoSuchElementException::new);
+            studentRepository.delete(prev);
+            studentRepository.save(fromDTO(newStudent));
+            return true;
+        } catch (NoSuchElementException exception) {
+            return false;
+        }
     }
 
     @Override
