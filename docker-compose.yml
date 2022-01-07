@@ -20,6 +20,15 @@ services:
       retries: 5
       start_period: 10s
     restart: unless-stopped
+  app:
+    container_name: my-warehouse-test-task
+    #    build:
+    #      dockerfile: Dockerfile
+    image: my-warehouse-test-task:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pg01
 
 volumes:
   pgdata:
