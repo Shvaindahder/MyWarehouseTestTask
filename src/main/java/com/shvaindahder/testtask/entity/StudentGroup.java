@@ -11,23 +11,22 @@ import java.util.Set;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "subject")
-public class Subject {
+@Table(name = "students_group")
+public class StudentGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     private String name;
 
-    @ManyToMany
-    @JoinTable(
-            name = "StudentGroup_Subject",
-            joinColumns = {@JoinColumn(name = "subject_id")},
-            inverseJoinColumns = {@JoinColumn(name = "student_group_id")}
-    )
-    Set<StudentGroup> studentGroups = new HashSet<>();
+    @OneToMany(mappedBy = "group")
+    Set<Student> students = new HashSet<>();
 
-    public Subject(String name) {
+    @ManyToMany(mappedBy = "studentGroups")
+    Set<Subject> subjects = new HashSet<>();
+
+    public StudentGroup(String name) {
         this.name = name;
     }
 
@@ -35,8 +34,8 @@ public class Subject {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Subject subject = (Subject) o;
-        return Objects.equals(id, subject.id) && Objects.equals(name, subject.name);
+        StudentGroup that = (StudentGroup) o;
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name);
     }
 
     @Override
@@ -46,9 +45,8 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "Subject{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+        return "StudentGroup{" +
+                "name='" + name + '\'' +
                 '}';
     }
 }
