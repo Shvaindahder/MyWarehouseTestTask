@@ -14,7 +14,7 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 @Table(name = "marks")
-public class Marks {
+public class Mark {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,7 +34,7 @@ public class Marks {
     @Max(5)
     private short mark;
 
-    public Marks(Student student, Subject subject) {
+    public Mark(Student student, Subject subject) {
         this.student = student;
         this.subject = subject;
     }
@@ -43,8 +43,8 @@ public class Marks {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Marks marks = (Marks) o;
-        return Objects.equals(id, marks.id);
+        Mark mark = (Mark) o;
+        return Objects.equals(id, mark.id);
     }
 
     @Override

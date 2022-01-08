@@ -1,4 +1,4 @@
-package com.shvaindahder.testtask.exceptions;
+package com.shvaindahder.testtask.exception;
 
 
 import org.apache.coyote.Response;

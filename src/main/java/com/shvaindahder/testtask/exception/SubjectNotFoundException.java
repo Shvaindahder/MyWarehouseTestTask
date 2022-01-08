@@ -1,4 +1,4 @@
-package com.shvaindahder.testtask.exceptions;
+package com.shvaindahder.testtask.exception;
 
 public class SubjectNotFoundException extends Exception {
 
