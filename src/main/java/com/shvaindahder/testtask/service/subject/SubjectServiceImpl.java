@@ -152,7 +152,7 @@ public class SubjectServiceImpl implements SubjectService {
                                 .getStudentsGroupName()
                                 .stream()
                                 .map(
-                                        (String studentsGroupName)  ->
+                                        studentsGroupName ->
                                                 studentGroupRepository
                                                         .findByName(studentsGroupName)
                                                         .orElse(null)

@@ -69,7 +69,7 @@ public class StudentServiceImpl implements StudentService {
             return StudentsResponse.of(studentDTOs
                     .stream()
                     .filter(
-                            (StudentDTO studentDTO) -> studentDTO
+                            studentDTO -> studentDTO
                                     .getSurname()
                                     .equals(filter.getSurname())
                     ).collect(Collectors.toSet()));

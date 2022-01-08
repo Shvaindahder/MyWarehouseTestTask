@@ -48,7 +48,7 @@ public class MarksOfStudentBySubjectResponse {
                 marks
                         .stream()
                         .map(
-                                (Marks mark) -> new MarkDTO(
+                                mark -> new MarkDTO(
                                         mark.getMark(),
                                         mark.getDateTime()
                                 )
