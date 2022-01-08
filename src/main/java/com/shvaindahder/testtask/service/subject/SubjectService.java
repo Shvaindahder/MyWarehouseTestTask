@@ -2,8 +2,8 @@ package com.shvaindahder.testtask.service.subject;
 
 import com.shvaindahder.testtask.dto.SubjectDTO;
 import com.shvaindahder.testtask.entity.Subject;
-import com.shvaindahder.testtask.exceptions.StudentsGroupNotFoundException;
-import com.shvaindahder.testtask.exceptions.SubjectNotFoundException;
+import com.shvaindahder.testtask.exception.StudentsGroupNotFoundException;
+import com.shvaindahder.testtask.exception.SubjectNotFoundException;
 import com.shvaindahder.testtask.service.Service;
 
 import java.util.Set;

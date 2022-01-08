@@ -4,7 +4,7 @@ import com.shvaindahder.testtask.dto.StudentDTO;
 import com.shvaindahder.testtask.dto.StudentFilter;
 import com.shvaindahder.testtask.dto.response.StudentsResponse;
 import com.shvaindahder.testtask.entity.Student;
-import com.shvaindahder.testtask.exceptions.StudentNotFoundException;
+import com.shvaindahder.testtask.exception.StudentNotFoundException;
 import com.shvaindahder.testtask.service.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

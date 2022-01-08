@@ -2,12 +2,12 @@ package com.shvaindahder.testtask.controller;
 
 import com.shvaindahder.testtask.dto.request.MarkRequest;
 import com.shvaindahder.testtask.dto.response.MarkDTO;
-import com.shvaindahder.testtask.entity.Marks;
+import com.shvaindahder.testtask.entity.Mark;
 import com.shvaindahder.testtask.entity.Student;
 import com.shvaindahder.testtask.entity.Subject;
-import com.shvaindahder.testtask.exceptions.MarkNotFoundException;
-import com.shvaindahder.testtask.exceptions.StudentNotFoundException;
-import com.shvaindahder.testtask.exceptions.SubjectNotFoundException;
+import com.shvaindahder.testtask.exception.MarkNotFoundException;
+import com.shvaindahder.testtask.exception.StudentNotFoundException;
+import com.shvaindahder.testtask.exception.SubjectNotFoundException;
 import com.shvaindahder.testtask.service.marks.MarksService;
 import com.shvaindahder.testtask.service.student.StudentService;
 import com.shvaindahder.testtask.service.subject.SubjectService;
@@ -50,7 +50,7 @@ public class MarksController {
     public ResponseEntity<MarkDTO> setMark(
             @RequestBody MarkRequest markRequest
     ) throws StudentNotFoundException, SubjectNotFoundException {
-        Marks mark = new Marks();
+        Mark mark = new Mark();
 
         mark.setStudent(
                 studentService.fromDTO(

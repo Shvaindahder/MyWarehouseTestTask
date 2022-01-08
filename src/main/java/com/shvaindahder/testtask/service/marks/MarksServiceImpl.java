@@ -2,12 +2,11 @@ package com.shvaindahder.testtask.service.marks;
 
 import com.shvaindahder.testtask.dto.response.MarkDTO;
 import com.shvaindahder.testtask.dto.response.MarksOfStudentBySubjectResponse;
-import com.shvaindahder.testtask.entity.Marks;
+import com.shvaindahder.testtask.entity.Mark;
 import com.shvaindahder.testtask.entity.Student;
 import com.shvaindahder.testtask.entity.Subject;
-import com.shvaindahder.testtask.exceptions.MarkNotFoundException;
+import com.shvaindahder.testtask.exception.MarkNotFoundException;
 import com.shvaindahder.testtask.repository.MarksRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -31,11 +30,11 @@ public class MarksServiceImpl implements MarksService {
 
     @Override
     public List<MarksOfStudentBySubjectResponse> getMarksOfStudent(Student student) {
-        List<Marks> studentMarks = marksRepository.findMarksByStudent(student);
-        Map<Subject, List<Marks>> splitMarksBySubject =
+        List<Mark> studentMarks = marksRepository.findMarksByStudent(student);
+        Map<Subject, List<Mark>> splitMarksBySubject =
                 studentMarks
                         .stream()
-                        .collect(Collectors.groupingBy(Marks::getSubject));
+                        .collect(Collectors.groupingBy(Mark::getSubject));
 
         List<MarksOfStudentBySubjectResponse> marksOfStudentBySubjectResponses = new ArrayList<>();
 
@@ -50,18 +49,18 @@ public class MarksServiceImpl implements MarksService {
 
     @Override
     public List<MarkDTO> getMarksOfStudentBySubject(Student student, Subject subject) {
-        List<Marks> studentMarks = marksRepository.findMarksByStudentAndSubjectOrderByDateTimeDesc(student, subject);
+        List<Mark> studentMarks = marksRepository.findMarksByStudentAndSubjectOrderByDateTimeDesc(student, subject);
         return studentMarks.stream().map(this::toDTO).collect(Collectors.toList());
     }
 
     @Override
-    public MarkDTO save(Marks mark) {
+    public MarkDTO save(Mark mark) {
         marksRepository.save(mark);
         return toDTO(mark);
     }
 
     @Override
-    public MarkDTO toDTO(Marks object) {
+    public MarkDTO toDTO(Mark object) {
         MarkDTO markDTO = new MarkDTO();
 
         markDTO.setMark(object.getMark());
@@ -70,7 +69,7 @@ public class MarksServiceImpl implements MarksService {
     }
 
     @Override
-    public Marks fromDTO(MarkDTO markDTO) {
+    public Mark fromDTO(MarkDTO markDTO) {
         return null;
     }
 }

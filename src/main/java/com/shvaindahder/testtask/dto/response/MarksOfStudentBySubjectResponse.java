@@ -1,6 +1,6 @@
 package com.shvaindahder.testtask.dto.response;
 
-import com.shvaindahder.testtask.entity.Marks;
+import com.shvaindahder.testtask.entity.Mark;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,16 +23,16 @@ public class MarksOfStudentBySubjectResponse {
 
     }
 
-    private static boolean isAllSubjectsSame(List<Marks> marks) {
+    private static boolean isAllSubjectsSame(List<Mark> marks) {
         String firstMarkSubject = marks.get(0).getSubject().getName();
         return marks
                 .stream()
                 .allMatch(
-                        (Marks mark) -> mark.getSubject().getName().equals(firstMarkSubject)
+                        (Mark mark) -> mark.getSubject().getName().equals(firstMarkSubject)
                 );
     }
 
-    public static MarksOfStudentBySubjectResponse of(List<Marks> marks) throws IllegalArgumentException {
+    public static MarksOfStudentBySubjectResponse of(List<Mark> marks) throws IllegalArgumentException {
         // marks should be split by subject
         if (marks.size() == 0 || isAllSubjectsSame(marks)) {
             throw new IllegalArgumentException();

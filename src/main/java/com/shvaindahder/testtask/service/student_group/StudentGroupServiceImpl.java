@@ -1,7 +1,7 @@
 package com.shvaindahder.testtask.service.student_group;
 
 import com.shvaindahder.testtask.entity.StudentGroup;
-import com.shvaindahder.testtask.exceptions.StudentsGroupNotFoundException;
+import com.shvaindahder.testtask.exception.StudentsGroupNotFoundException;
 import com.shvaindahder.testtask.repository.StudentGroupRepository;
 import org.springframework.stereotype.Service;
 

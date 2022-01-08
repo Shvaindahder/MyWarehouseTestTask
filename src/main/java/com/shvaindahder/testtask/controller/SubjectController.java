@@ -1,8 +1,8 @@
 package com.shvaindahder.testtask.controller;
 
 import com.shvaindahder.testtask.dto.SubjectDTO;
-import com.shvaindahder.testtask.exceptions.StudentsGroupNotFoundException;
-import com.shvaindahder.testtask.exceptions.SubjectNotFoundException;
+import com.shvaindahder.testtask.exception.StudentsGroupNotFoundException;
+import com.shvaindahder.testtask.exception.SubjectNotFoundException;
 import com.shvaindahder.testtask.service.subject.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
