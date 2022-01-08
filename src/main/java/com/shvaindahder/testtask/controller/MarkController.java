@@ -20,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/marks")
-public class MarksController {
+public class MarkController {
 
     @Autowired
     private StudentService studentService;

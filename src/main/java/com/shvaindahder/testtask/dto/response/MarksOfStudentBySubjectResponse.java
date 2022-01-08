@@ -25,6 +25,7 @@ public class MarksOfStudentBySubjectResponse {
 
     private static boolean isAllSubjectsSame(List<Mark> marks) {
         String firstMarkSubject = marks.get(0).getSubject().getName();
+
         return marks
                 .stream()
                 .allMatch(
@@ -34,7 +35,9 @@ public class MarksOfStudentBySubjectResponse {
 
     public static MarksOfStudentBySubjectResponse of(List<Mark> marks) throws IllegalArgumentException {
         // marks should be split by subject
-        if (marks.size() == 0 || isAllSubjectsSame(marks)) {
+        if (marks.size() == 0) return null;
+
+        if (!isAllSubjectsSame(marks)) {
             throw new IllegalArgumentException();
         }
 

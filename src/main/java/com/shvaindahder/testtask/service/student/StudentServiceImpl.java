@@ -71,7 +71,8 @@ public class StudentServiceImpl implements StudentService {
                             studentDTO -> studentDTO
                                     .getSurname()
                                     .equals(filter.getSurname())
-                    ).collect(Collectors.toSet()));
+                    )
+                    .collect(Collectors.toSet()));
         }
 
         return StudentsResponse.of(studentDTOs);
