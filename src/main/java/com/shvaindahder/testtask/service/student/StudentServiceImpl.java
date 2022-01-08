@@ -10,7 +10,6 @@ import com.shvaindahder.testtask.exceptions.StudentsGroupNotFoundException;
 import com.shvaindahder.testtask.repository.StudentRepository;
 import com.shvaindahder.testtask.service.marks.MarksService;
 import com.shvaindahder.testtask.service.student_group.StudentGroupService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -84,7 +83,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Boolean delete(StudentDTO dto) {
+    public boolean delete(StudentDTO dto) {
         Student student = fromDTO(dto);
         if (student.getId() != null) {
             studentRepository.delete(student);
@@ -94,7 +93,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Boolean update(Long id, StudentDTO newStudent) {
+    public boolean update(Long id, StudentDTO newStudent) {
         Student prev;
 
         try {

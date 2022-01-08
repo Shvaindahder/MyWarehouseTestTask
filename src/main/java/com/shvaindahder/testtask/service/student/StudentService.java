@@ -16,9 +16,9 @@ public interface StudentService extends Service<StudentDTO, Student> {
 
     StudentDTO save(StudentDTO dto);
 
-    Boolean delete(StudentDTO dto);
+    boolean delete(StudentDTO dto);
 
-    Boolean update(Long id, StudentDTO newStudent);
+    boolean update(Long id, StudentDTO newStudent);
 
     StudentDTO patch(Long id, StudentDTO newStudent) throws StudentNotFoundException;
 }

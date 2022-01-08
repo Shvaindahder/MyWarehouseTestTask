@@ -67,7 +67,7 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public Boolean update(Long id, SubjectDTO subjectDTO) {
+    public boolean update(Long id, SubjectDTO subjectDTO) {
         boolean status = true;
 
         try {
@@ -111,7 +111,7 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public Boolean delete(SubjectDTO subjectDTO) {
+    public boolean delete(SubjectDTO subjectDTO) {
         Subject subject = fromDTO(subjectDTO);
         if (subject.getId() != null) {
             subjectRepository.delete(subject);

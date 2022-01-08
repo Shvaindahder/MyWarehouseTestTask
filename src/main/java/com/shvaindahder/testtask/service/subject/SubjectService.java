@@ -17,9 +17,9 @@ public interface SubjectService extends Service<SubjectDTO, Subject> {
 
     Subject save(SubjectDTO subjectDTO);
 
-    Boolean update(Long id, SubjectDTO subjectDTO);
+    boolean update(Long id, SubjectDTO subjectDTO);
 
     SubjectDTO patchById(Long id, SubjectDTO subjectDTO) throws SubjectNotFoundException;
 
-    Boolean delete(SubjectDTO subjectDTO);
+    boolean delete(SubjectDTO subjectDTO);
 }
