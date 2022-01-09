@@ -1,4 +1,4 @@
 ## Запуск приложения
 
-- mvn package
+- mvn package -DskipTests
 - docker-compose up
