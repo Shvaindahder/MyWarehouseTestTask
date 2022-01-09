@@ -4,6 +4,7 @@ services:
   postgres:
     image: postgres:11.1-alpine
     container_name: pg01
+    hostname: 0.0.0.0
     environment:
       POSTGRES_DB: "students_db"
       POSTGRES_USER: "some_user"
@@ -22,13 +23,20 @@ services:
     restart: unless-stopped
   app:
     container_name: my-warehouse-test-task
-    #    build:
-    #      dockerfile: Dockerfile
-    image: my-warehouse-test-task:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: my-warehouse-test-task
     ports:
       - "8080:8080"
     depends_on:
-      - pg01
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/students_db
+      - SPRING_DATASOURCE_USERNAME=some_user
+      - SPRING_DATASOURCE_PASSWORD=some_password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
 
 volumes:
   pgdata:
